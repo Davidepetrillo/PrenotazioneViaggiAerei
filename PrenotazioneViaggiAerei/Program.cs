@@ -21,10 +21,30 @@ var clienteNuovo = DatiCliente();
 
 DescrizioneCliente(clienteNuovo);
 
-Aeroporto sceltaAeroportoPartenza = SceltaAeroportoPartenza();
-Aeroporto sceltaAeroportoArrivo = SceltaAeroportoArrivo();
+Console.WriteLine("Digita 0 per prenotare un volo SOLO ANDATA  -  Digita 1 per prenotare un volo ANDATA E RITORNO");
 
-StampaTratta(sceltaAeroportoPartenza, sceltaAeroportoArrivo);
+bool sceltaAndataeRitornoUser = bool.Parse(Console.ReadLine());
+
+if(sceltaAndataeRitornoUser == false)
+{
+    Aeroporto sceltaAeroportoPartenza = SceltaAeroportoPartenza();
+    Aeroporto sceltaAeroportoArrivo = SceltaAeroportoArrivo();
+
+    StampaTratta(sceltaAeroportoPartenza, sceltaAeroportoArrivo);
+
+} else if (sceltaAndataeRitornoUser == true)
+{
+    Aeroporto sceltaAeroportoPartenza = SceltaAeroportoPartenza();
+    Aeroporto sceltaAeroportoArrivo = SceltaAeroportoArrivo();
+
+    Aeroporto sceltaAeroportoPartenzaRitorno = SceltaAeroportoArrivo();
+    Aeroporto sceltaAeroportoArrivoRitorno = SceltaAeroportoPartenza();
+
+
+}
+
+
+
 
 
 
@@ -124,39 +144,15 @@ Tratta StampaTratta(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding)
 {
     Tratta trattaSelezionata = new Tratta(aeroportoTakeOff, aeroportoLanding);
     double costoTrattaSelezionata = trattaSelezionata.CostoTratta;
+    int durataTrattaSelezionata = trattaSelezionata.durataTratta;
     Console.WriteLine();
     Console.WriteLine("Di seguito puoi trovare la tratta che hai scelto : ");
     Console.WriteLine();
 
     Console.WriteLine($"Aeroporto di partenza:{aeroportoTakeOff}");
     Console.WriteLine($"Aeroporto di arrivo: {aeroportoLanding}");
-
-    if ((aeroportoTakeOff.LuogoDellAeroporto == "Napoli") && (aeroportoLanding.LuogoDellAeroporto == "Roma"))
-    {
-        Console.WriteLine("Durata viaggio : 60 min");
-    }
-    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Napoli") && (aeroportoLanding.LuogoDellAeroporto == "Milano"))
-    {
-        Console.WriteLine("Durata viaggio : 90 min");
-    }
-    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Roma") && (aeroportoLanding.LuogoDellAeroporto == "Napoli"))
-    {
-        Console.WriteLine("Durata viaggio : 55 min");
-    }
-    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Roma") && (aeroportoLanding.LuogoDellAeroporto == "Milano"))
-    {
-        Console.WriteLine("Durata viaggio : 50 min");
-    }
-    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Milano") && (aeroportoLanding.LuogoDellAeroporto == "Roma"))
-    {
-        Console.WriteLine("Durata viaggio : 50 min");
-    }
-    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Milano") && (aeroportoLanding.LuogoDellAeroporto == "Napoli"))
-    {
-        Console.WriteLine("Durata viaggio : 90 min");
-    }
-
-    Console.WriteLine($"Costo tratta : {costoTrattaSelezionata} ");
+    Console.WriteLine($"La durata del volo è di: {durataTrattaSelezionata} minuti");
+    Console.WriteLine($"Costo tratta : {costoTrattaSelezionata} euro");
 
     Tratta newTrack = new Tratta(aeroportoTakeOff, aeroportoLanding);
 
