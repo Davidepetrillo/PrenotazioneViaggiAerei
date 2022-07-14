@@ -15,13 +15,16 @@ long codiceRandomAereo = randomPlaneCode.Next(100000);
 
 
 
-Cliente clienteNuovo = DatiCliente();
+var clienteNuovo = DatiCliente();
+
+//Cliente userX = new Cliente(clienteNuovo.Nome, clienteNuovo.Cognome, clienteNuovo.CodiceFiscale, clienteNuovo.Email, clienteNuovo.Sesso, clienteNuovo.RecapitoTelefonico, clienteNuovo.Indirizzo);
+
 DescrizioneCliente(clienteNuovo);
 
 Aeroporto sceltaAeroportoPartenza = SceltaAeroportoPartenza();
 Aeroporto sceltaAeroportoArrivo = SceltaAeroportoArrivo();
-StampaTratta(sceltaAeroportoPartenza, sceltaAeroportoArrivo);
 
+StampaTratta(sceltaAeroportoPartenza, sceltaAeroportoArrivo);
 
 
 
@@ -77,10 +80,8 @@ Cliente DatiCliente()
     Console.WriteLine();
 
 
-    Cliente clienteX = new Cliente(nomeNuovoCliente,cognomeNuovoCliente, codiceFiscaleNuovoCliente, emailNuovoCliente, sessoNuovoCliente, numeroTelefonoNuovoCliente, indirizzoNuovoCliente);
-
-    return clienteX;
-
+    Cliente clienteNuovo = new Cliente(nomeNuovoCliente,cognomeNuovoCliente, codiceFiscaleNuovoCliente, emailNuovoCliente, sessoNuovoCliente, numeroTelefonoNuovoCliente, indirizzoNuovoCliente);
+    return clienteNuovo;
 }
 
 
@@ -118,7 +119,12 @@ Aeroporto SceltaAeroportoArrivo()
     return aereoportoDiArrivo;
 }
 
+/*
+double CostoTratta()
+{
 
+}
+*/
 void StampaTratta(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding)
 {
     Console.WriteLine();
@@ -126,6 +132,10 @@ void StampaTratta(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding)
     Console.WriteLine();
     Console.WriteLine($"Aeroporto di partenza:{aeroportoTakeOff}");
     Console.WriteLine($"Aeroporto di arrivo: {aeroportoLanding}");
+    if((aeroportoTakeOff.LuogoDellAeroporto == "Napoli") && (aeroportoLanding.LuogoDellAeroporto == "Roma"){
+        Console.WriteLine("Durata viaggio : 60 min");
+        Console.WriteLine("Costo tratta ");
+    }
 
 }
 
@@ -159,10 +169,6 @@ while (!dataCorretta)
 }
 
 */
-
-
-
-
 
 
 

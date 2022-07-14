@@ -15,7 +15,7 @@ namespace PrenotazioneViaggiAerei
         public DateTime DataPartenza { get; set; }
         public int numeroPostiDisponibili { get; set; }
         public int NumeroPostiPrenotati { get; set; }
-
+        public double costoTratta { get; set; }
 
         public long GetCodice()
         {
@@ -23,7 +23,7 @@ namespace PrenotazioneViaggiAerei
             long codice = random.Next(1000000000);
             return codice;
         }
-        public PrenotazioneVolo(string codiceVolo, Cliente clienteX, string aeroportoPartenza, string aeroportoArrivo, DateTime dataPartenza, int numeroPostiPrenotati)
+        public PrenotazioneVolo(string codiceVolo, Cliente clienteX, string aeroportoPartenza, string aeroportoArrivo, DateTime dataPartenza, int numeroPostiPrenotati, double costoTratta)
         {
             this.CodiceVolo = codiceVolo; 
             this.ClienteX = clienteX;
@@ -45,7 +45,9 @@ namespace PrenotazioneViaggiAerei
             {
                 throw new Exception("Non è possibile prenotare il numero di posti da lei selezionato per questo volo");
             }
-            this.NumeroPostiPrenotati = numeroPostiPrenotati
+            this.NumeroPostiPrenotati = numeroPostiPrenotati;
+
+            this.costoTratta = costoTratta;
         }
 
     }

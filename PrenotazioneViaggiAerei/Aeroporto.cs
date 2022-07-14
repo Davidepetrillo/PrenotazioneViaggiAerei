@@ -12,10 +12,7 @@ namespace PrenotazioneViaggiAerei
 
         public Aeroporto (string luogoDellAeroporto)
         {
-            if (luogoDellAeroporto != "Napoli" && luogoDellAeroporto != "Roma" && luogoDellAeroporto != "Milano"
-                && luogoDellAeroporto != "Parigi" && luogoDellAeroporto != "Madrid" && luogoDellAeroporto != "Londra"
-                && luogoDellAeroporto != "Berlino" && luogoDellAeroporto != "Mosca" && luogoDellAeroporto != "New York"
-                && luogoDellAeroporto != "Pechino" && luogoDellAeroporto != "Sydney" && luogoDellAeroporto != "Tokyo")
+            if (luogoDellAeroporto != "Napoli" && luogoDellAeroporto != "Roma" && luogoDellAeroporto != "Milano")
             {
                 throw new Exception("Mi dispiace ma la nostra compagnia non vola nell'aeroporto da lei selezionato");
             }
