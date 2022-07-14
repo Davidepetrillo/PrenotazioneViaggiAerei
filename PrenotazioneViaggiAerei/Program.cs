@@ -127,15 +127,42 @@ double CostoTratta()
 */
 void StampaTratta(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding)
 {
+    Tratta trattaSelezionata = new Tratta(aeroportoTakeOff, aeroportoLanding);
+    double costoTrattaSelezionata = trattaSelezionata.CostoTratta;
     Console.WriteLine();
     Console.WriteLine("Di seguito puoi trovare la tratta che hai scelto : ");
     Console.WriteLine();
+
     Console.WriteLine($"Aeroporto di partenza:{aeroportoTakeOff}");
     Console.WriteLine($"Aeroporto di arrivo: {aeroportoLanding}");
-    if((aeroportoTakeOff.LuogoDellAeroporto == "Napoli") && (aeroportoLanding.LuogoDellAeroporto == "Roma"){
+
+    if ((aeroportoTakeOff.LuogoDellAeroporto == "Napoli") && (aeroportoLanding.LuogoDellAeroporto == "Roma"))
+    {
         Console.WriteLine("Durata viaggio : 60 min");
-        Console.WriteLine("Costo tratta ");
     }
+    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Napoli") && (aeroportoLanding.LuogoDellAeroporto == "Milano"))
+    {
+        Console.WriteLine("Durata viaggio : 90 min");
+    }
+    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Roma") && (aeroportoLanding.LuogoDellAeroporto == "Napoli"))
+    {
+        Console.WriteLine("Durata viaggio : 55 min");
+    }
+    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Roma") && (aeroportoLanding.LuogoDellAeroporto == "Milano"))
+    {
+        Console.WriteLine("Durata viaggio : 50 min");
+    }
+    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Milano") && (aeroportoLanding.LuogoDellAeroporto == "Roma"))
+    {
+        Console.WriteLine("Durata viaggio : 50 min");
+    }
+    else if ((aeroportoTakeOff.LuogoDellAeroporto == "Milano") && (aeroportoLanding.LuogoDellAeroporto == "Napoli"))
+    {
+        Console.WriteLine("Durata viaggio : 90 min");
+    }
+
+    Console.WriteLine($"Costo tratta : {costoTrattaSelezionata} ");
+
 
 }
 
