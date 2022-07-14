@@ -159,6 +159,41 @@ Tratta StampaTratta(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding)
     return newTrack;
 }
 
+Tratta StampaTrattaConRitorno(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding, Aeroporto aeroportoTakeOffBack, Aeroporto aeroportoLandingBack)
+{
+    Tratta trattaSelezionataAndata = new Tratta(aeroportoTakeOff, aeroportoLanding);
+    double costoTrattaSelezionata = trattaSelezionataAndata.CostoTratta;
+    int durataTrattaSelezionata = trattaSelezionataAndata.durataTratta;
+    aeroportoTakeOffBack = aeroportoLanding;
+    aeroportoLandingBack = aeroportoTakeOff;
+    Tratta trattaSelezionataRitorno = new Tratta(aeroportoTakeOff, aeroportoLanding);
+    double costoTrattaSelezionataRitorno = trattaSelezionataRitorno.CostoTratta;
+    int durataTrattaSelezionataRitorno = trattaSelezionataRitorno.durataTratta;
+
+    Console.WriteLine();
+    Console.WriteLine("Di seguito puoi trovare la tratta che hai scelto : ");
+    Console.WriteLine();
+    Console.WriteLine("Andata");
+    Console.WriteLine();
+    Console.WriteLine($"Aeroporto di partenza:{aeroportoTakeOff}");
+    Console.WriteLine($"Aeroporto di arrivo: {aeroportoLanding}");
+    Console.WriteLine($"La durata del volo è di: {durataTrattaSelezionata} minuti");
+    Console.WriteLine($"Costo tratta : {costoTrattaSelezionata} euro");
+    Console.WriteLine();
+    Console.WriteLine("Ritorno");
+    Console.WriteLine();
+    Console.WriteLine($"Aeroporto di partenza:{aeroportoTakeOffBack}");
+    Console.WriteLine($"Aeroporto di arrivo: {aeroportoLandingBack}");
+    Console.WriteLine($"La durata del volo è di: {durataTrattaSelezionataRitorno} minuti");
+    Console.WriteLine($"Costo tratta : {costoTrattaSelezionataRitorno} euro");
+
+    Tratta newTrack = new Tratta(aeroportoTakeOff, aeroportoLanding);
+
+    return newTrack;
+}
+
+
+
 
 
 

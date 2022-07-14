@@ -10,13 +10,18 @@ namespace PrenotazioneViaggiAerei
     {
         public Aeroporto AeroportoPartenza { get; set; }
         public Aeroporto AeroportoArrivo { get; set; }
+        public Aeroporto AeroportoPartenzaRitorno { get; set; }
+        public Aeroporto AeroportoArrivoRitorno { get; set; }
         public int durataTratta { get; set; }
         public double CostoTratta { get; set; }
 
-        public Tratta(Aeroporto areportoPartenza, Aeroporto aeroportoArrivo)
+        public Tratta(Aeroporto aeroportoPartenza, Aeroporto aeroportoArrivo)
         {
-            this.AeroportoPartenza = areportoPartenza;
+            this.AeroportoPartenza = aeroportoPartenza;
             this.AeroportoArrivo = aeroportoArrivo;
+            this.AeroportoPartenzaRitorno = aeroportoArrivo;
+            this.AeroportoArrivoRitorno = aeroportoPartenza;
+
             if ((AeroportoPartenza.LuogoDellAeroporto == "Napoli") && (aeroportoArrivo.LuogoDellAeroporto == "Roma"))
             {
                 this.CostoTratta = 29.99;
@@ -47,5 +52,6 @@ namespace PrenotazioneViaggiAerei
                 this.durataTratta = 85;
             }
         }
+        
     }
 }
