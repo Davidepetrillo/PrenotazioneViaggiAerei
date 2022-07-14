@@ -8,6 +8,7 @@ namespace PrenotazioneViaggiAerei
 {
     internal class Pagamento
     {
+        public Tratta TrattaSceltaDalCliente { get; set; }
         public string IBANcarta { get; set; }
 
         private int CvcCarta; 
@@ -20,7 +21,7 @@ namespace PrenotazioneViaggiAerei
             return CvcCarta;
         }
 
-        public Pagamento(string IBAN, int cvc, Cliente cliente)
+        public Pagamento(string IBAN, int cvc, Cliente cliente, Tratta trattaSceltaDalCliente)
         {
 
             if (IBAN.Length != 26)
@@ -33,6 +34,8 @@ namespace PrenotazioneViaggiAerei
             this.CvcCarta = cvc;
 
             this.ClienteX = cliente;
+
+            this.TrattaSceltaDalCliente = trattaSceltaDalCliente;
 
         }
 

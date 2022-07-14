@@ -119,13 +119,8 @@ Aeroporto SceltaAeroportoArrivo()
     return aereoportoDiArrivo;
 }
 
-/*
-double CostoTratta()
-{
 
-}
-*/
-void StampaTratta(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding)
+Tratta StampaTratta(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding)
 {
     Tratta trattaSelezionata = new Tratta(aeroportoTakeOff, aeroportoLanding);
     double costoTrattaSelezionata = trattaSelezionata.CostoTratta;
@@ -163,7 +158,9 @@ void StampaTratta(Aeroporto aeroportoTakeOff, Aeroporto aeroportoLanding)
 
     Console.WriteLine($"Costo tratta : {costoTrattaSelezionata} ");
 
+    Tratta newTrack = new Tratta(aeroportoTakeOff, aeroportoLanding);
 
+    return newTrack;
 }
 
 
